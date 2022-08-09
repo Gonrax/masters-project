@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Job Listings</title>
+    <link rel="icon" href="/images/cloud.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+
+        <div class="body">
+            <h1>Your Job Postings</h1>
+            <div class="grid-container">
+                {{#each jobs}}
+                    <a href="/jobs/{{id}}" class="clickable_div">
+                        <div class="grid-body">
+                            <div class="grid-inline">
+                                <p class="grid-title">{{name}}</p>
+                                <p class="grid-title">{{wage}}£</p>
+                            </div>
+                            <p class="grid-title">{{title}}</p>
+                            <p class="grid-short_description">{{description_short}}</p>
+                            <div class="grid-inline">
+                                <p>{{dateFormat timestamp_closed}}</p>
+                                {{#ifCond status 1}}
+                                    <p style="text-align: right">Opened</p>
+                                {{else}}
+                                    <p style="text-align: right">Closed</p>
+                                {{/ifCond}}
+                            </div>
+                        </div>
+                    </a>
+                {{/each}}
+            </div>
+        </div>
+
+    </div>
+
+    {{>footer}}
+</body>
+
+</html>

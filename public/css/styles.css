@@ -1,0 +1,291 @@
+body {
+    color: #333333;
+    font-family: arial, serif;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a{
+    color: #333333;
+}
+
+.body {
+    width: 70%;
+    margin: auto;
+}
+
+.main-content {
+    flex-grow: 1;
+
+}
+
+footer {
+    color: #888888;
+    border-top: 1px solid #eeeeee;
+    margin-top: 16px;
+    padding: 16px 0;
+}
+
+header {
+    margin-bottom: 24px;
+    border-bottom: 1px solid #eeeeee;
+    height: auto;
+
+    position: sticky;
+    top: 0;
+    display: inline-block;
+    width: 100%;
+
+    background-color: white;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+header li a {
+    color: #888888;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+.nav_bar {
+    height: 100%;
+    padding: 16px 64px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav_bar ul {
+    padding: 20px;
+    background: white;
+    display: flex;
+    align-items: center;
+}
+
+.nav_bar li {
+    list-style-type: none;
+    height: 24px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    align-items: center;
+}
+
+.nav_bar li a {
+    color: black;
+    font-size: 24px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    padding: 5px 15px;
+    opacity: 0.7;
+}
+
+.space_btw {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.div_log_reg {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+}
+
+.intro{
+    text-align: center;
+    font-size: 24px;
+}
+
+.details {
+    display: inline-block;
+}
+
+.details p {
+    padding: 16px;
+}
+
+input {
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+th {
+    text-align: left;
+    width: 25%;
+    padding: 8px;
+}
+
+td {
+    padding: 8px;
+}
+
+.jobPost {
+    text-align: center;
+}
+
+.jobPost .fileUpload {
+    text-align: center;
+}
+
+.jobPost table{
+    text-align: left;
+    display: inline-block;
+}
+
+.createJob-grid{
+    display: grid;
+    grid-template-columns: 65% 30%;
+    grid-column-gap: 5%;
+}
+
+.createJob-grid > div > input{
+    display: block;
+    margin: 0 auto 16px auto;
+}
+
+input.submit {
+    margin: auto;
+    font-size: 24px;
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #888888;
+    background: #888888;
+    color: white;
+    padding: 8px;
+}
+
+.person {
+    background: url("../public/images/person.png");
+    height: 20px;
+    width: 20px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #30535e;
+}
+
+.dropbtn {
+    background-color: #385b66;
+    color: #d2eabe;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    font-weight: bold;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 16px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.grid-container .grid-body {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 0;
+    font-size: 16px;
+    border: 2px solid #30535e;
+    border-radius: 24px;
+    height: 250px;
+    width: 350px;
+    background-color: #dddddd;
+}
+
+.grid-container a {
+    text-decoration: none;
+}
+
+.grid-container p {
+    padding: 0 16px;
+}
+
+.grid-title {
+    font-weight: bold;
+}
+
+.grid-short_description {
+    height: 110px;
+}
+
+.grid-inline {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.grid-container table {
+    min-width: 30px;
+    word-wrap: break-word;
+    padding: 0 16px;
+    height: 228px;
+}
+
+.viewJob-grid{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-column-gap: 5%;
+}
+
+.jobBid {
+    margin-top: 40px;
+}
+
+.jobBid p{
+    display: inline-block;
+}
+
+.jobBid form{
+    margin-top: 40px;
+}
+
+.footer-description{
+    margin: 64px 128px;
+}
+
+
+@media (max-width: 1600px) {
+    .grid-container {
+        grid-template-columns: auto auto;
+    }
+}

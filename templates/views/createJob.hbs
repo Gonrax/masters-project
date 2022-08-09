@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <link rel="icon" href="/images/logo.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdn.tiny.cloud/1/csmllp5783ul5wwxr8cb8ehe7k5jouyplr7xxzyn9q65mewe/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: '#description_long'
+        });
+    </script>
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+
+        <div class="body">
+            <h1>Create your job listing</h1>
+            <form class="jobPost" id="jobPost">
+                <div class="createJob-grid">
+                    <table>
+                        <tr>
+                            <th>
+                                <label for="title">Job Title</label>
+                            </th>
+                            <td>
+                                <input id="title" type="text" name="title" placeholder="Title" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="category_id">Job Category</label>
+                            </th>
+                            <td>
+                                <!--TODO rewrite to make dynamic from db-->
+                                <select id="category_id" name="category_id" required>
+                                    <option value="1">Construction</option>
+                                    <option value="2">Art</option>
+                                    <option value="3">Cleaning</option>
+                                    <option value="4">Software</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="type">Auction Type</label>
+                            </th>
+                            <td>
+                                <!--TODO rewrite to make dynamic from db-->
+                                <select id="type" name="type" required>
+                                    <option value="english">English Auction</option>
+                                    <option value="dutch">Dutch Auction</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="sub_type">Auction Sub-type</label>
+                            </th>
+                            <td>
+                                <input type="radio" id="open" name="sub_type" value="open" checked>
+                                <label for="open">Open Auction</label>
+                                <input type="radio" id="clos" name="sub_type" value="clos">
+                                <label for="clos">Closed Auction</label><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="wage">Starting Wage</label>
+                            </th>
+                            <td>
+                                <input id="wage" type="number" name="wage" placeholder="Starting Wage" required> £
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="timestamp_closed">End of Auction</label>
+                            </th>
+                            <td>
+                                <input id="timestamp_closed" type="datetime-local" name="timestamp_closed" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="description_short">Job Short<br> Description</label>
+                            </th>
+                            <td>
+                                <textarea cols="30" rows="3" id="description_short" name="description_short"
+                                          placeholder="Your Short Description of the Job" required></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="description_long">Job Long<br> Description</label>
+                            </th>
+                            <td>
+                                <textarea id="description_long">Long Description of the Job.</textarea>
+                            </td>
+                        </tr>
+                    </table>
+                    <div>
+                        <input class="fileUpload" id="fileUpload" type="file" onchange="test()" required>
+                        <img width="200px" id="uploaded_image" src="#" alt="your image" />
+                    </div>
+                </div>
+
+
+                <input class="submit" type="submit" value="Create Job Post">
+            </form>
+        </div>
+    </div>
+    {{>footer}}
+    <script src="/js/postJob.js"></script>
+</body>
+
+</html>

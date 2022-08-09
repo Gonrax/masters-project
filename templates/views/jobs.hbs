@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Job Listings</title>
+    <link rel="icon" href="/images/cloud.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+
+        <div class="body">
+            <h1>Job Postings</h1>
+            <div class="grid-container">
+                {{#each jobs}}
+                    <a href="/jobs/{{id}}" class="clickable_div">
+                        <div class="grid-body">
+                            <div class="grid-inline">
+                                <p class="grid-title">{{name}}</p>
+                                <!-- closed auction-->
+                                {{#ifCond auction_subtype 1}}
+                                    <p class="grid-title">Closed</p>
+                                {{else}}
+                                    <p class="grid-title">{{wage}}£</p>
+                                {{/ifCond}}
+
+                            </div>
+                            <p class="grid-title">{{title}}</p>
+                            <p class="grid-short_description">{{description_short}}</p>
+                            <p>{{dateFormat timestamp_closed}}</p>
+                        </div>
+                    </a>
+                {{/each}}
+            </div>
+        </div>
+
+    </div>
+
+    {{>footer}}
+</body>
+
+</html>

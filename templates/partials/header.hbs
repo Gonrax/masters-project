@@ -1,0 +1,36 @@
+<header>
+    <div class="nav_bar">
+        <a href="/">
+            <img height="100px" width="100px" class="logo" src="/images/logo.png" alt="logo">
+        </a>
+
+        <div class="space_btw">
+            <ul>
+                <li><a href="/jobs">Jobs</a></li>
+                {{#if user}}
+                    <li><a href="/jobs/post">Post Jobs</a></li>
+                    <li><a href="/">My Current Bids</a></li>
+                    <li><a href="/">Winning Bids</a></li>
+                {{/if}}
+                <li><a href="/about">About</a></li>
+            </ul>
+
+            <div class="div_log_reg">
+                {{#if user}}
+                    <div class="dropdown">
+                        <button class="dropbtn">{{user.first_name}}</button>
+                        <div class="dropdown-content">
+                            <a href="/user/me">Profile</a>
+                            <a href="/jobs/me">My Postings</a>
+                            <a href="/user/logout">Log Out</a>
+                        </div>
+                    </div>
+                {{else}}
+                    <a href="/user/login">
+                        <button class="log_reg">Log-in / Register</button>
+                    </a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</header>

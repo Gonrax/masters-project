@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>View Job</title>
+    <link rel="icon" href="/images/cloud.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+
+        <div class="body">
+            <h1>{{job.title}}</h1>
+            <h2 style="text-align: center">{{job.name}}</h2>
+
+            <div class="viewJob-grid">
+                <div style="text-align: center">
+                    <img width="50%" src="/images/jobs/{{job.image}}" alt="Work Image"> <!--todo change for dynamic-->
+                </div>
+                <div class="jobBid">
+                    <p>Time Left:</p>
+                    <p id="timer">~~Time~~</p>
+                    <h4>Current winning bit: {{job.wage}}£</h4>
+
+                    <form>
+                        <label for="bid"> Place your bid:
+                        </label>
+                        <input id="bid" type="number" name="bid" placeholder="Your Bid">
+                        <input type="submit" value="Place Bid">
+                    </form>
+                </div>
+                <div>
+                    <h3>Job Description Short</h3>
+                    <p>{{job.description_short}}</p>
+                </div>
+            </div>
+
+            <div class="footer-description">
+                <h3>Job Description Long</h3>
+                <p>{{{job.description_long}}}</p>
+            </div>
+
+        </div>
+    </div>
+
+    {{>footer}}
+    <script src="/js/countDownTimer.js"></script>
+</body>
+
+</html>

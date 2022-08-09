@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <link rel="icon" href="/images/cloud.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+        <div class="body">
+
+            <p>Please Log-in</p>
+
+            <form id="login">
+                <label for="email">
+                </label>
+                <input id="email" type="text" name="email" placeholder="Email address" value="dominik.husar@gmail.com">
+                <label for="password">
+                </label>
+                <input id="password" type="password" placeholder="Password" value="123456">
+                <input type="submit" value="Login">
+            </form>
+
+            <p id="message-1"></p>
+        </div>
+    </div>
+    {{>footer}}
+    <script src="/js/creatCustomer.js"></script>
+</body>
+
+</html>

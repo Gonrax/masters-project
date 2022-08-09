@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Error</title>
+    <link rel="icon" href="/images/cloud.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+
+        <div class="body error">
+            <h1>Error:</h1>
+            <p style="text-align: center">{{error}}</p>
+            {{#if login}}
+                <a href="/user/login">
+                    <button class="log_reg">Log-in / Register</button>
+                </a>
+            {{/if}}
+        </div>
+    </div>
+
+    {{>footer}}
+</body>
+
+</html>
