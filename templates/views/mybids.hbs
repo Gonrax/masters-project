@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>My Job Listings</title>
+    <title>My Bids</title>
     <link rel="icon" href="/images/logo.png">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -11,19 +11,18 @@
     <div class="main-content">
         {{>header}}
 
-        <div class="body">
-            <h1>Your Job Postings</h1>
+        <div class="body error">
+            <h1>My Active Bids</h1>
             <div class="grid-container">
                 {{#if jobs.length}}
                     {{#each jobs}}
-                        {{>jobsPartial view="creator" user=../user}}
+                        {{>jobsPartial view="bidder" user=../user}}
                     {{/each}}
                 {{else}}
-                    <h4>You do not have posted job auctions</h4>
+                    <h4>You do not have any active bids</h4>
                 {{/if}}
             </div>
         </div>
-
     </div>
 
     {{>footer}}

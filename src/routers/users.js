@@ -54,6 +54,7 @@ router.post('/user/register', softAuth, async (req, res) => {
         if (!existingUser) {
             const {userId, token} = (await sql.createUser(req.body))
             const user = await sql.getUserById(userId)
+            res.cookie("jwt", token, {secure: false, httpOnly: false})
             res.send({user, token})
         } else {
             res.send({error: "User Already exists"})

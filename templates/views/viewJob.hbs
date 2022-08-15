@@ -3,7 +3,7 @@
 
 <head>
     <title>View Job</title>
-    <link rel="icon" href="/images/cloud.png">
+    <link rel="icon" href="/images/logo.png">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
@@ -12,28 +12,113 @@
         {{>header}}
 
         <div class="body">
-            <h1>{{job.title}}</h1>
+            <div style="position: relative">
+                {{#ifCond job.creator_id user.id}}
+                    {{#ifCond job.status 1}}
+                    <button onclick="cancelAuction({{job.id}})" class="cancelbtn" style="position: absolute; right: 0px">Cancel Auction</button>
+                    {{/ifCond}}
+                {{/ifCond}}
+                <h1>{{job.title}}</h1>
+            </div>
             <h2 style="text-align: center">{{job.name}}</h2>
+
 
             <div class="viewJob-grid">
                 <div style="text-align: center">
                     <img width="50%" src="/images/jobs/{{job.image}}" alt="Work Image"> <!--todo change for dynamic-->
                 </div>
                 <div class="jobBid">
-                    <p>Time Left:</p>
-                    <p id="timer">~~Time~~</p>
-                    <h4>Current winning bit: {{job.wage}}£</h4>
+                    {{#ifCond job.status 1}}
+                        <p>Time Left:</p>
+                        <p id="timer">~~Time~~</p>
+                        <hr>
+                        {{#ifCond job.auction_type 1}}
+                            <h4>Current winning bid:
+                                <div style="display: inline" id="currentBid">{{job.final_wage}}£</div>
+                            </h4>
+                            <h4>Auction type: English Auction</h4>
+                            <hr>
+                        {{else ifCond job.auction_type 2}}
+                            <h4>Current auction bid: {{job.final_wage}}£</h4>
+                            <h4>Auction type: Dutch Auction</h4>
+                            <hr>
+                        {{else ifCond job.auction_type 3}}
+                            <h4>Auction type: FPSB Auction</h4>
+                            <hr>
+                        {{/ifCond}}
 
-                    <form>
-                        <label for="bid"> Place your bid:
-                        </label>
-                        <input id="bid" type="number" name="bid" placeholder="Your Bid">
-                        <input type="submit" value="Place Bid">
-                    </form>
+                        <form id="bidForm">
+                            <input type="hidden" id="auction_type" value={{job.auction_type}}>
+                            {{#ifCond job.winner_id user.id}}
+                                <h4>You are the current highest bidder</h4>
+                            {{else ifCond job.creator_id user.id}}
+                                <h4>You are the creator of this Auction</h4>
+                            {{else if job.offer}}
+                                <h4>You have already place a bid of: {{job.offer}}£</h4>
+                            {{else}}
+                                <input type="hidden" id="jobId" value={{job.id}}>
+                                {{#ifCond job.auction_type 1}}
+                                    <label for="bid"> Place your bid:
+                                    </label>
+                                    <input id="bid" type="number" name="bid" max="{{fivePercent job.final_wage}}"
+                                           placeholder="Your Bid" required>
+                                    <div class="bidSubmitDiv">
+                                        <input type="submit" value="Place Bid">
+                                    </div>
+                                {{else ifCond job.auction_type 2}}
+                                    <label for="bid">
+                                    </label>
+                                    <input id="bid" type="submit" value="Accept Bid">
+                                {{else ifCond job.auction_type 3}}
+                                    <label for="bid"> Place your bid:
+                                    </label>
+                                    <input id="bid" type="number" name="bid" placeholder="Your Bid" required>
+                                    <div class="bidSubmitDiv">
+                                        <input type="submit" class="bidSubmit" value="Place Bid">
+                                    </div>
+
+                                {{/ifCond}}
+                            {{/ifCond}}
+                        </form>
+                    {{else}}
+                        <p>Auction has been closed</p>
+                        <hr>
+                        {{#ifCond job.auction_type 1}}
+                            <h4>The winning bid is:
+                                <div style="display: inline" id="currentBid">{{job.final_wage}}£</div>
+                            </h4>
+                            <h4>Auction type: English Auction</h4>
+                        {{else ifCond job.auction_type 2}}
+                            {{#if job.winner_id}}
+                                <h4>The action has been closed for: {{job.final_wage}}£</h4>
+                            {{else}}
+                                <h4>The action has been closed without a winner</h4>
+                            {{/if}}
+                            <h4>Auction type: Dutch Auction</h4>
+                        {{else ifCond job.auction_type 3}}
+                            {{#if job.winner_id}}
+                                <h4>The action has been closed for: {{job.final_wage}}£</h4>
+                            {{else}}
+                                <h4>The action has been closed without a winner</h4>
+                            {{/if}}
+                            <h4>Auction type: FPSB Auction</h4>
+                        {{/ifCond}}
+
+                        <form id="bidForm">
+                            <hr>
+                            <input type="hidden" id="auction_type" value={{job.auction_type}}>
+                            {{#ifCond job.winner_id user.id}}
+                                <h4>You are the winner of this auction!!</h4>
+                            {{else ifCond job.creator_id user.id}}
+                                <h4>You are the creator of this Auction</h4>
+                            {{/ifCond}}
+                        </form>
+                    {{/ifCond}}
+
                 </div>
                 <div>
                     <h3>Job Description Short</h3>
-                    <p>{{job.description_short}}</p>
+                    <p class="short_description">{{job.description_short}}</p>
                 </div>
             </div>
 
@@ -46,7 +131,7 @@
     </div>
 
     {{>footer}}
-    <script src="/js/countDownTimer.js"></script>
+    <script src="/js/jobPage.js"></script>
 </body>
 
 </html>

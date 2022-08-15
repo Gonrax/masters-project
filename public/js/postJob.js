@@ -2,16 +2,10 @@ const jobCreateForm = document.getElementById('jobPost')
 
 jobCreateForm.addEventListener('submit', async (e) => {
     e.preventDefault()
-    let subType;
 
     const title = document.querySelector('#title').value
     const category_id = document.querySelector('#category_id').value
     const type = document.querySelector('#type').value
-    if (document.querySelector('#open').checked) {
-        subType = 1;
-    } else {
-        subType = 0;
-    }
     const timestamp_closed = document.querySelector('#timestamp_closed').value.replace("T", " ").concat(":00")
     const wage = document.querySelector('#wage').value
     const description_short = document.querySelector('#description_short').value
@@ -38,7 +32,6 @@ jobCreateForm.addEventListener('submit', async (e) => {
             title,
             category_id,
             type,
-            subType,
             wage,
             description_short,
             description_long,

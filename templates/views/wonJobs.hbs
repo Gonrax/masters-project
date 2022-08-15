@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>My Job Listings</title>
+    <title>Job Listings</title>
     <link rel="icon" href="/images/logo.png">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -12,14 +12,14 @@
         {{>header}}
 
         <div class="body">
-            <h1>Your Job Postings</h1>
+            <h1>Your Won Auctions</h1>
             <div class="grid-container">
                 {{#if jobs.length}}
                     {{#each jobs}}
                         {{>jobsPartial view="creator" user=../user}}
                     {{/each}}
                 {{else}}
-                    <h4>You do not have posted job auctions</h4>
+                    <h4>You do not have any won auctions</h4>
                 {{/if}}
             </div>
         </div>

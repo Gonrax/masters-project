@@ -41,6 +41,8 @@ header {
     width: 100%;
 
     background-color: white;
+
+    z-index: 999;
 }
 
 h1 {
@@ -99,9 +101,22 @@ header li a {
     margin-right: 16px;
 }
 
+.log_reg{
+    background-color: #385b66;
+    color: #d2eabe;
+    border-radius: 16%;
+}
+
+.bidSubmitDiv{
+    text-align: center;
+    width: 100%;
+    margin-top: 8px;
+}
+
 .intro{
     text-align: center;
     font-size: 24px;
+    padding: 24px;
 }
 
 .details {
@@ -154,6 +169,9 @@ td {
 input.submit {
     margin: auto;
     font-size: 24px;
+    border-radius: 16%;
+    background-color: #385b66;
+    color: #d2eabe;
 }
 
 button {
@@ -190,6 +208,18 @@ button {
     font-size: 16px;
     border: none;
     font-weight: bold;
+    border-radius: 10%;
+}
+
+.short_description{
+    padding-right: 32px;
+}
+
+.cancelbtn{
+    background-color: #385b66;
+    color: #d2eabe;
+    border: none;
+    border-radius: 10%;
 }
 
 .dropdown {
@@ -230,6 +260,8 @@ button {
     height: 250px;
     width: 350px;
     background-color: #dddddd;
+
+    position: relative;
 }
 
 .grid-container a {
@@ -252,6 +284,12 @@ button {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    min-height: 54px;
+}
+
+.grid-inline-last {
+    position: absolute;
+    bottom: 0;
 }
 
 .grid-container table {
@@ -267,8 +305,15 @@ button {
     grid-column-gap: 5%;
 }
 
-.jobBid {
-    margin-top: 40px;
+.sign_in_grid{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 5%;
+    text-align: center;
+}
+
+.sign_in_grid input {
+    margin: 8px;
 }
 
 .jobBid p{
@@ -283,6 +328,32 @@ button {
     margin: 64px 128px;
 }
 
+.noMarginBottom {
+    margin-bottom: 0;
+}
+
+.about_text {
+    text-align: center;
+}
+
+select {
+    width: 235px;
+    height: 24px;
+    text-align: center;
+}
+
+input {
+    width: 220px;
+}
+
+.errorLogIn{
+    width: 100%;
+    text-align: center;
+}
+
+.fullWidth{
+    width: 100%;
+}
 
 @media (max-width: 1600px) {
     .grid-container {

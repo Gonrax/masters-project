@@ -3,7 +3,7 @@
 
 <head>
     <title>Login</title>
-    <link rel="icon" href="/images/cloud.png">
+    <link rel="icon" href="/images/logo.png">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
@@ -12,17 +12,90 @@
         {{>header}}
         <div class="body">
 
-            <p>Please Log-in</p>
+            <h1>Please Sign-in</h1>
 
-            <form id="login">
-                <label for="email">
-                </label>
-                <input id="email" type="text" name="email" placeholder="Email address" value="dominik.husar@gmail.com">
-                <label for="password">
-                </label>
-                <input id="password" type="password" placeholder="Password" value="123456">
-                <input type="submit" value="Login">
-            </form>
+            <div class="sign_in_grid">
+                <div>
+                    <h4>Log In</h4>
+                    <form id="login">
+                        <table class="fullWidth">
+                            <tr>
+                                <td>
+                                    <label for="login_email"> Email Address
+                                    </label>
+                                </td>
+                                <td>
+                                    <input id="login_email" type="text" name="login_email" placeholder="Email address"
+                                           required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="login_password"> Password
+                                    </label>
+                                </td>
+                                <td>
+                                    <input alt="test" id="login_password" type="password" placeholder="Password" required
+                                           pattern="(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$"
+                                           title="The password must have 8 characters, 1 uppercase letter, 1 lowercase letter and 1 special character">
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="submit" value="Login">
+                    </form>
+
+                </div>
+
+                <div>
+                    <h4>Register</h4>
+                    <form id="register">
+                        <table class="fullWidth">
+                            <tr>
+                                <td>
+                                    <label for="register_email"> Email Address
+                                    </label>
+                                </td>
+                                <td>
+                                    <input id="register_email" type="text" name="register_email" placeholder="Email address"
+                                           required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="register_password"> Password
+                                    </label>
+                                </td>
+                                <td>
+                                    <input id="register_password" type="password" placeholder="Password" required
+                                           pattern="(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$"
+                                           title="The password must have 8 characters, 1 uppercase letter, 1 lowercase letter and 1 special character">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="register_first_name"> First Name
+                                    </label>
+                                </td>
+                                <td>
+                                    <input id="register_first_name" type="text" name="register_first_name" placeholder="First Name"
+                                           required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="register_last_name"> Last Name
+                                    </label>
+                                </td>
+                                <td>
+                                    <input id="register_last_name" type="text" name="register_last_name" placeholder="Last Name"
+                                            required>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="submit" value="Register">
+                    </form>
+                </div>
+            </div>
 
             <p id="message-1"></p>
         </div>

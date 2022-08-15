@@ -1,0 +1,47 @@
+<a href="/jobs/{{id}}" class="clickable_div">
+    <div class="grid-body">
+        <div class="grid-inline">
+            <p class="grid-title">{{name}}</p>
+            {{#ifCond auction_type 1}}
+                <p class="grid-title">English Auction</p>
+            {{else ifCond auction_type 2}}
+                <p class="grid-title">Dutch Auction</p>
+            {{else ifCond auction_type 3}}
+                <p class="grid-title">FPSB Auction</p>
+            {{/ifCond}}
+        </div>
+        <div class="grid-inline">
+            <p class="grid-title noMarginBottom">{{title}}</p>
+            {{#ifCond auction_type 1}}
+                <p class="grid-title noMarginBottom">{{final_wage}}£</p>
+            {{else ifCond auction_type 2}}
+                <p class="grid-title noMarginBottom">{{final_wage}}£</p>
+            {{else ifCond auction_type 3}}
+                {{#if offer}}
+                    <p class="grid-title noMarginBottom">Your bid: {{offer}}£</p>
+                {{/if}}
+            {{else ifCond view "creator"}}
+                <p class="grid-title noMarginBottom">{{final_wage}}£</p>
+            {{/ifCond}}
+        </div>
+        <p class="grid-short_description">{{description_short}}</p>
+        <div class="grid-inline grid-inline-last">
+            <p>{{dateFormat timestamp_closed}}</p>
+            {{#ifCond view "creator"}}
+                {{#ifCond status 1}}
+                    <p style="text-align: right">Opened</p>
+                {{else}}
+                    <p style="text-align: right">Closed</p>
+                {{/ifCond}}
+            {{else ifCond view "bidder"}}
+                {{#ifCond auction_type 1}}
+                    {{#ifCond winner_id user.id}}
+                        <p style="text-align: right">Winning</p>
+                    {{else if offer}}
+                        <p style="text-align: right">Outbid</p>
+                    {{/ifCond}}
+                {{/ifCond}}
+            {{/ifCond}}
+        </div>
+    </div>
+</a>

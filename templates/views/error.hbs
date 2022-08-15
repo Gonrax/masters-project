@@ -3,7 +3,7 @@
 
 <head>
     <title>Error</title>
-    <link rel="icon" href="/images/cloud.png">
+    <link rel="icon" href="/images/logo.png">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
@@ -15,9 +15,11 @@
             <h1>Error:</h1>
             <p style="text-align: center">{{error}}</p>
             {{#if login}}
+                <div class="errorLogIn">
                 <a href="/user/login">
                     <button class="log_reg">Log-in / Register</button>
                 </a>
+                </div>
             {{/if}}
         </div>
     </div>

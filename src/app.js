@@ -39,11 +39,20 @@ hbs.registerHelper('ifCond', function (v1, v2, options) {
 hbs.registerHelper('dateFormat', function (value) {
     return value.toISOString().replace(/T/, ' ').replace(/\..+/, '')
 });
+
+hbs.registerHelper('fivePercent', function (value) {
+    return value * 0.95
+});
 //HELPERS HBS
 
 app.get('', softAuth, (req, res) => {
     res.render('index', {
-        title: 'Auction',
+        user: req.user
+    })
+})
+
+app.get('/about', softAuth, (req, res) => {
+    res.render('about', {
         user: req.user
     })
 })
