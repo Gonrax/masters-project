@@ -10,7 +10,12 @@
 
     <script>
         tinymce.init({
-            selector: '#description_long'
+            selector: 'textarea#description_long',
+            setup: function (editor) {
+                editor.on('change', function () {
+                    editor.save();
+                });
+            }
         });
     </script>
 </head>
